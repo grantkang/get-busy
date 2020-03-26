@@ -4,6 +4,10 @@ class RoutingForm {
     this.formElement = routingFormElement;
     console.log(this.formElement);
     this.addInitialDeliveryRows();
+    this.addDestinationInputRow = this.addDestinationInputRow.bind(this);
+    this.removeDestinationInputRow = this.removeDestinationInputRow.bind(this);
+    this.formElement.querySelector('#add-location-button').addEventListener('click',this.addDestinationInputRow);
+    this.formElement.querySelector('#remove-location-button').addEventListener('click', this.removeDestinationInputRow);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formElement.addEventListener('submit', this.handleSubmit);
     this.handleCancel = this.handleCancel.bind(this);
@@ -51,11 +55,23 @@ class RoutingForm {
   convertFromLocationsToWayPoints(locations) {
     var waypoints = [];
     for(var item of locations) {
-      waypoints.push({
-        location: item,
-        stopover: true
-      });
+      if(item) {
+        waypoints.push({
+          location: item,
+          stopover: true
+        });
+      }
     }
     return waypoints;
+  }
+  addDestinationInputRow() {
+    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
+    deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+  }
+  removeDestinationInputRow() {
+    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
+    if(deliveryLocationInputs.children.length) {
+      deliveryLocationInputs.removeChild(deliveryLocationInputs.lastChild);
+    }
   }
 }
