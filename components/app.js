@@ -38,7 +38,7 @@ class App {
     this.yelpSearchForm.onSubmit(this.searchForPotentialCustomers);
   }
   handlePotentialCustomerSearchSuccess(resp) {
-    console.log(resp);
+    this.routingForm.populateForm(resp.businesses);
   }
   handlePotentialCustomerSearchError(error) {
     console.log(error);
