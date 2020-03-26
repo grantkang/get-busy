@@ -9,22 +9,33 @@
   <title>C220 Hackathon 2</title>
 </head>
 <body>
-  <main id="main-viewport" class="container">
-    <h1>Generic Delivery App (for now..)</h1>
+  <h1>Generic Delivery App (for now..)</h1>
+  <main id="main-viewport" class="container-fluid">
+
     <div class="row">
-    <form id="routing-form" class="col-lg-6">
+      <form id="routing-form" class="col-lg-4">
+        <div class="form-group">
+          <label for="startingPointInput">Starting Point</label>
+          <input type="text" class="form-control" id="startingPointInput" name="startingPointInput">
+        </div>
+        <label>Delivery Locations</label>
+        <div id="delivery-location-inputs">
 
-    </form>
-    <div id="map" class="col-lg-6">
-
-    </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Get Route">
+        <input class="btn btn-outline-secondary" type="reset" value="Clear">
+      </form>
+      <div id="map" class="col-lg-8">
+      </div>
     </div>
   </main>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBXXIiVIS6WiM5qdH92gdc-F84LyT_1Po&callback=initMap" async
-    defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="components/routing-form.js"></script>
+  <script src="components/map-controller.js"></script>
   <script src="components/app.js"></script>
   <script src="main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBXXIiVIS6WiM5qdH92gdc-F84LyT_1Po&callback=init" async
+    defer></script>
 </body>
 </html>

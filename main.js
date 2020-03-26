@@ -1,3 +1,10 @@
+var routeForm;
+var mapController;
+var app;
 
-var app = new App();
-app.start();
+function init() {
+  routeForm = new RoutingForm(document.getElementById('routing-form'));
+  mapController = new MapController(document.getElementById('map'));
+  app = new App(routeForm, mapController);
+  app.start();
+}
