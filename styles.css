@@ -1,5 +1,5 @@
 #map {
-  height : 80vh;
+  height: 94vh;
 }
 html,
 body {
@@ -10,4 +10,9 @@ body {
 
 h1 {
   text-align: center;
+}
+
+#routing-form {
+  max-height: 94vh;
+  overflow: auto;
 }

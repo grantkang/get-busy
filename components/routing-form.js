@@ -74,4 +74,18 @@ class RoutingForm {
       deliveryLocationInputs.removeChild(deliveryLocationInputs.lastChild);
     }
   }
+  populateForm(businesses) {
+    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
+    var formRows = deliveryLocationInputs.children;
+    for(var i = 0; i < businesses.length; i++) {
+      var inputText = '';
+      // inputText = businesses[i].name + ', ';
+      inputText += businesses[i].location.display_address[0] + ', ';
+      inputText += businesses[i].location.display_address[1];
+      while(formRows.length <= i) {
+        deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+      }
+      formRows[i].lastChild.setAttribute('value',inputText);
+    }
+  }
 }

@@ -8,7 +8,8 @@ class MapController {
   initMap() {
     this.map = new google.maps.Map(this.mapElement, {
       center: { lat: 34.0522, lng: -118.2437 },
-      zoom: 10
+      zoom: 10,
+      streetViewControl: false
     });
     this.directionsRenderer.setMap(this.map);
   }
