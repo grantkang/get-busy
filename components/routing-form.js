@@ -12,12 +12,13 @@ class RoutingForm {
     this.formElement.addEventListener('submit', this.handleSubmit);
     this.handleCancel = this.handleCancel.bind(this);
     this.formElement.addEventListener('reset', this.handleCancel);
+    this.deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
   }
   addInitialDeliveryRows() {
-    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
-    deliveryLocationInputs.innerHTML = '';
+
+    this.deliveryLocationInputs.innerHTML = '';
     for(let i = 0; i < 6; i++) {
-      deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+      this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
     }
   }
   renderDestinationInputRow() {
@@ -65,25 +66,24 @@ class RoutingForm {
     return waypoints;
   }
   addDestinationInputRow() {
-    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
-    deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+    this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
   }
   removeDestinationInputRow() {
-    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
-    if(deliveryLocationInputs.children.length) {
-      deliveryLocationInputs.removeChild(deliveryLocationInputs.lastChild);
+    if(this.deliveryLocationInputs.children.length) {
+      this.deliveryLocationInputs.removeChild(this.deliveryLocationInputs.lastChild);
     }
   }
   populateForm(businesses) {
-    var deliveryLocationInputs = this.formElement.querySelector('#delivery-location-inputs');
-    var formRows = deliveryLocationInputs.children;
+    var formRows = this.deliveryLocationInputs.children;
     for(var i = 0; i < businesses.length; i++) {
       var inputText = '';
-      // inputText = businesses[i].name + ', ';
-      inputText += businesses[i].location.display_address[0] + ', ';
-      inputText += businesses[i].location.display_address[1];
+      inputText = businesses[i].name + ', ';
+      for (var displayAddress of businesses[i].location.display_address) {
+        inputText += displayAddress + ', ';
+      }
+      inputText = inputText.slice(0, inputText.length - 2);
       while(formRows.length <= i) {
-        deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+        this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
       }
       formRows[i].lastChild.setAttribute('value',inputText);
     }
