@@ -14,8 +14,8 @@ class YelpSearch {
     var yelpBusinessSearchRequest = {
       location: formData.get('location'),
       optionalParams: {
-        'term': formData.get('search-query'),
-        'categories': formData.get('search-query')
+        term: formData.get('search-query'),
+        categories: formData.get('search-query')
       }
     }
     this.searchForPotentialCustomers(yelpBusinessSearchRequest);

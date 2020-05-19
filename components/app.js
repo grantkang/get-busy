@@ -26,7 +26,7 @@ class App {
       method: 'GET',
       url: endpointUrl,
       headers: {
-        'Authorization': 'Bearer Iuxh6BRdBbrRGR9_Rz18XyIAUrL5VneC4k2hzUpjGthO5Z6bQVFVDDdakGNpe8VPB6_GG89M3gNFH38F_Kg5eADr3eUpgc2vI4zkyoRbzurDxHRvDJT1QcFundJ8XnYx'
+        Authorization: yApiKey
       },
       success: this.handlePotentialCustomerSearchSuccess,
       error: this.handlePotentialCustomerSearchError
