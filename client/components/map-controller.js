@@ -1,10 +1,11 @@
-
+/* eslint-disable no-undef */
 class MapController {
-  constructor (mapElement) {
+  constructor(mapElement) {
     this.mapElement = mapElement;
     this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
   }
+
   initMap() {
     this.map = new google.maps.Map(this.mapElement, {
       center: { lat: 34.0522, lng: -118.2437 },
@@ -14,3 +15,5 @@ class MapController {
     this.directionsRenderer.setMap(this.map);
   }
 }
+
+module.exports = MapController;

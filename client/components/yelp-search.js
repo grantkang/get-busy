@@ -5,9 +5,11 @@ class YelpSearch {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formElement.addEventListener('submit', this.handleSubmit);
   }
+
   onSubmit(searchForPotentialCustomers) {
     this.searchForPotentialCustomers = searchForPotentialCustomers;
   }
+
   handleSubmit(event) {
     event.preventDefault();
     var formData = new FormData(event.target);
@@ -17,7 +19,8 @@ class YelpSearch {
         term: formData.get('search-query'),
         categories: formData.get('search-query')
       }
-    }
+    };
     this.searchForPotentialCustomers(yelpBusinessSearchRequest);
   }
 }
+module.exports = YelpSearch;
