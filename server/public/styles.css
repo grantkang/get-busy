@@ -1,0 +1,18 @@
+#map {
+  height: 94vh;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+#routing-form {
+  max-height: 94vh;
+  overflow: auto;
+}
