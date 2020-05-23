@@ -4,13 +4,9 @@ class App {
     this.routingForm = routingForm;
     this.mapController = mapController;
     this.yelpSearchForm = yelpSearchForm;
-    this.calculateRoute = this.calculateRoute.bind(this);
-    this.searchForPotentialCustomers = this.searchForPotentialCustomers.bind(this);
-    this.handlePotentialCustomerSearchError = this.handlePotentialCustomerSearchError.bind(this);
-    this.handlePotentialCustomerSearchSuccess = this.handlePotentialCustomerSearchSuccess.bind(this);
   }
 
-  calculateRoute(directionsRequest) {
+  calculateRoute = directionsRequest => {
     this.mapController.directionsService.route(directionsRequest, (result, status) => {
       if (status === 'OK') {
         this.mapController.directionsRenderer.setDirections(result);
@@ -18,7 +14,7 @@ class App {
     });
   }
 
-  searchForPotentialCustomers(yelpBusinessSearchRequest) {
+  searchForPotentialCustomers = yelpBusinessSearchRequest => {
     var endpointUrl = '/api/yelp/customers';
     $.ajax({
       method: 'POST',
@@ -38,11 +34,11 @@ class App {
     this.yelpSearchForm.onSubmit(this.searchForPotentialCustomers);
   }
 
-  handlePotentialCustomerSearchSuccess(resp) {
+  handlePotentialCustomerSearchSuccess = resp => {
     this.routingForm.populateForm(resp.businesses);
   }
 
-  handlePotentialCustomerSearchError(error) {
+  handlePotentialCustomerSearchError = error => {
     console.error(error);
   }
 }
