@@ -2,15 +2,14 @@
 class YelpSearch {
   constructor(yelpSearchFormElement) {
     this.formElement = yelpSearchFormElement;
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.formElement.addEventListener('submit', this.handleSubmit);
   }
 
-  onSubmit(searchForPotentialCustomers) {
+  onSubmit = searchForPotentialCustomers => {
     this.searchForPotentialCustomers = searchForPotentialCustomers;
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     var formData = new FormData(event.target);
     var yelpBusinessSearchRequest = {
