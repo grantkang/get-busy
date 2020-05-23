@@ -2,27 +2,23 @@
 class RoutingForm {
   constructor(routingFormElement) {
     this.formElement = routingFormElement;
-    this.addDestinationInputRow = this.addDestinationInputRow.bind(this);
-    this.removeDestinationInputRow = this.removeDestinationInputRow.bind(this);
     this.formElement.querySelector('#add-location-button').addEventListener('click', this.addDestinationInputRow);
     this.formElement.querySelector('#remove-location-button').addEventListener('click', this.removeDestinationInputRow);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.formElement.addEventListener('submit', this.handleSubmit);
-    this.handleCancel = this.handleCancel.bind(this);
     this.formElement.addEventListener('reset', this.handleCancel);
     this.deliveryLocationInputs = routingFormElement.querySelector('#delivery-location-inputs');
     this.addInitialDeliveryRows();
 
   }
 
-  addInitialDeliveryRows() {
+  addInitialDeliveryRows = () => {
     this.deliveryLocationInputs.innerHTML = '';
     for (let i = 0; i < 6; i++) {
       this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
     }
   }
 
-  renderDestinationInputRow() {
+  renderDestinationInputRow = () => {
     var destinationInputGroup = document.createElement('div');
     destinationInputGroup.classList.add('form-group');
 
@@ -35,11 +31,11 @@ class RoutingForm {
     return destinationInputGroup;
   }
 
-  onSubmit(calculateRoute) {
+  onSubmit = calculateRoute => {
     this.calculateRoute = calculateRoute;
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     var formData = new FormData(event.target);
 
@@ -54,11 +50,11 @@ class RoutingForm {
     this.calculateRoute(directionsRequest);
   }
 
-  handleCancel(event) {
+  handleCancel = event => {
     event.target.reset();
   }
 
-  convertFromLocationsToWayPoints(locations) {
+  convertFromLocationsToWayPoints = locations => {
     var waypoints = [];
     for (var item of locations) {
       if (item) {
@@ -71,17 +67,17 @@ class RoutingForm {
     return waypoints;
   }
 
-  addDestinationInputRow() {
+  addDestinationInputRow = () => {
     this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
   }
 
-  removeDestinationInputRow() {
+  removeDestinationInputRow = () => {
     if (this.deliveryLocationInputs.children.length) {
       this.deliveryLocationInputs.removeChild(this.deliveryLocationInputs.lastChild);
     }
   }
 
-  populateForm(businesses) {
+  populateForm = businesses => {
     var formRows = this.deliveryLocationInputs.children;
     for (var i = 0; i < businesses.length; i++) {
       var inputText = '';
