@@ -23,9 +23,15 @@ class NotificationService {
     });
     modalOptionsContent.forEach(option => {
       const button = document.createElement('button');
-      button.classList.add('btn', 'btn-primary', 'col-md-3', 'col-sm-12', 'mx-md-2', 'my-1');
+      button.classList.add('btn', 'col-md-3', 'col-sm-12', 'mx-md-2', 'my-1');
+      if (option.type) {
+        button.classList.add('btn-' + option.type);
+      } else {
+        button.classList.add('btn-primary');
+      }
       button.textContent = option.label;
       button.addEventListener('click', this.close);
+      if (option.callback) button.addEventListener('click', option.callback);
       this.modalOptions.appendChild(button);
     });
     this.modalOverlay.classList.remove('d-none');

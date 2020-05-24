@@ -35,6 +35,10 @@ class RoutingForm {
     this.calculateRoute = calculateRoute;
   }
 
+  onReset = openResetPrompt => {
+    this.openResetPrompt = openResetPrompt;
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     var formData = new FormData(event.target);
@@ -50,8 +54,13 @@ class RoutingForm {
     this.calculateRoute(directionsRequest);
   }
 
-  handleCancel = event => {
-    event.target.reset();
+  handleCancel = () => {
+    this.openResetPrompt();
+  }
+
+  reset = () => {
+    this.deliveryLocationInputs.innerHTML = '';
+    this.addInitialDeliveryRows();
   }
 
   convertFromLocationsToWayPoints = locations => {
