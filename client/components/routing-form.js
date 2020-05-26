@@ -92,12 +92,6 @@ class RoutingForm {
     this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
   }
 
-  removeDestinationInputRow = () => {
-    if (this.deliveryLocationInputs.children.length) {
-      this.deliveryLocationInputs.removeChild(this.deliveryLocationInputs.lastChild);
-    }
-  }
-
   populateForm = businesses => {
     var formRows = this.deliveryLocationInputs.children;
     for (var i = 0; i < businesses.length; i++) {
@@ -110,7 +104,7 @@ class RoutingForm {
       while (formRows.length <= i) {
         this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
       }
-      formRows[i].lastChild.setAttribute('value', inputText);
+      formRows[i].querySelector('input').setAttribute('value', inputText);
     }
   }
 }
