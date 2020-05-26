@@ -11,6 +11,10 @@ class App {
     this.mapController.directionsService.route(directionsRequest, (result, status) => {
       if (status === 'OK') {
         this.mapController.directionsRenderer.setDirections(result);
+      } else if (status === 'NOT_FOUND') {
+        this.notificationService.open('Not Found', ['Couldn\'t find a route..', 'One or more of the stops are invalid.'], [{ label: 'OK' }]);
+      } else {
+        this.notificationService.open('Oops', ['Something went wrong..'], [{ label: 'OK' }]);
       }
     });
   }
