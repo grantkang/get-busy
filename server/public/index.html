@@ -25,7 +25,7 @@
     <a class="navbar-brand" href="#">Get Busy</a>
     <form id="yelp-search-form" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-query">
-      <input class="form-control mr-sm-2" type="text" placeholder="Location" aria-label="Location" name="location">
+      <input required class="form-control mr-sm-2" type="text" placeholder="Location" aria-label="Location" name="location">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Customers</button>
     </form>
   </nav>
@@ -37,7 +37,7 @@
       <form id="routing-form" class="col-lg-4">
         <div class="form-group">
           <label for="startingPointInput">Starting/Ending Point</label>
-          <input type="text" class="form-control" id="startingPointInput" name="startingPointInput">
+          <input required type="text" class="form-control" id="startingPointInput" name="startingPointInput">
         </div>
         <label>Stops</label><div id="add-location-button" class="btn btn-outline-secondary btn-sm">+</div><div id="remove-location-button" class="btn btn-outline-secondary btn-sm">-</div>
         <div id="delivery-location-inputs">
