@@ -3,7 +3,6 @@ class RoutingForm {
   constructor(routingFormElement) {
     this.formElement = routingFormElement;
     this.formElement.querySelector('#add-location-button').addEventListener('click', this.addDestinationInputRow);
-    this.formElement.querySelector('#remove-location-button').addEventListener('click', this.removeDestinationInputRow);
     this.formElement.addEventListener('submit', this.handleSubmit);
     this.formElement.addEventListener('reset', this.handleCancel);
     this.deliveryLocationInputs = routingFormElement.querySelector('#delivery-location-inputs');
@@ -20,14 +19,27 @@ class RoutingForm {
 
   renderDestinationInputRow = () => {
     var destinationInputGroup = document.createElement('div');
-    destinationInputGroup.classList.add('form-group');
+    destinationInputGroup.classList.add('form-group', 'd-flex');
 
     var destinationInput = document.createElement('input');
     destinationInput.setAttribute('type', 'text');
     destinationInput.classList.add('form-control');
     destinationInput.setAttribute('name', 'destination-input');
 
+    var deleteButton = document.createElement('div');
+    deleteButton.classList.add('btn', 'btn-danger');
+
+    var deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('fa', 'fa-trash');
+
+    deleteButton.appendChild(deleteIcon);
+    deleteButton.addEventListener('click', () => {
+      this.deliveryLocationInputs.removeChild(destinationInputGroup);
+    });
+
     destinationInputGroup.appendChild(destinationInput);
+    destinationInputGroup.appendChild(deleteButton);
+
     return destinationInputGroup;
   }
 
