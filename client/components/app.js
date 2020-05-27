@@ -13,6 +13,8 @@ class App {
         this.mapController.directionsRenderer.setDirections(result);
       } else if (status === 'NOT_FOUND') {
         this.notificationService.open('Not Found', ['Couldn\'t find a route..', 'One or more of the stops are invalid.'], [{ label: 'OK' }]);
+      } else if (status === 'ZERO_RESULTS') {
+        this.notificationService.open('Not Found', ['Couldn\'t find a route..', 'Impossible to visit all the stops via car.'], [{ label: 'OK' }]);
       } else {
         this.notificationService.open('Oops', ['Something went wrong..'], [{ label: 'OK' }]);
       }
