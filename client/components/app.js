@@ -70,7 +70,7 @@ class App {
   }
 
   handlePotentialCustomerSearchSuccess = resp => {
-    if (resp.businesses) {
+    if (resp.businesses && resp.total > 0) {
       this.routingForm.populateForm(resp.businesses);
     } else {
       this.notificationService.open('Sorry', ['No results found..'], [{ label: 'OK' }]);
