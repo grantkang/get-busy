@@ -94,17 +94,20 @@ class RoutingForm {
 
   populateForm = businesses => {
     var formRows = this.deliveryLocationInputs.children;
+    var formIndex = 0;
     for (var i = 0; i < businesses.length; i++) {
-      var inputText = '';
-      inputText = businesses[i].name + ', ';
-      for (var displayAddress of businesses[i].location.display_address) {
-        inputText += displayAddress + ', ';
+      if (businesses[i].location.address1 !== null) {
+        var inputText = '';
+        inputText = businesses[i].name + ', ';
+        for (var displayAddress of businesses[i].location.display_address) {
+          inputText += displayAddress + ', ';
+        }
+        inputText = inputText.slice(0, inputText.length - 2);
+        while (formRows.length <= formIndex) {
+          this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
+        }
+        formRows[formIndex++].querySelector('input').value = inputText;
       }
-      inputText = inputText.slice(0, inputText.length - 2);
-      while (formRows.length <= i) {
-        this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
-      }
-      formRows[i].querySelector('input').value = inputText;
     }
   }
 }
