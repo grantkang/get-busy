@@ -104,7 +104,7 @@ class RoutingForm {
       while (formRows.length <= i) {
         this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
       }
-      formRows[i].querySelector('input').setAttribute('value', inputText);
+      formRows[i].querySelector('input').value = inputText;
     }
   }
 }
