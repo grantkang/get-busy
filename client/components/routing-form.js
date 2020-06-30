@@ -25,6 +25,7 @@ class RoutingForm {
     destinationInput.setAttribute('type', 'text');
     destinationInput.classList.add('form-control');
     destinationInput.setAttribute('name', 'destination-input');
+    destinationInput.setAttribute('placeholder', 'Address of Stop');
 
     var deleteButton = document.createElement('div');
     deleteButton.classList.add('btn', 'btn-danger');
