@@ -1,18 +1,18 @@
 
 class RoutingForm {
   constructor(routingFormElement) {
+    this.defaultInitialRowCount = 2;
     this.formElement = routingFormElement;
     this.formElement.querySelector('#add-location-button').addEventListener('click', this.addDestinationInputRow);
     this.formElement.addEventListener('submit', this.handleSubmit);
     this.formElement.addEventListener('reset', this.handleCancel);
     this.deliveryLocationInputs = routingFormElement.querySelector('#delivery-location-inputs');
     this.addInitialDeliveryRows();
-
   }
 
   addInitialDeliveryRows = () => {
     this.deliveryLocationInputs.innerHTML = '';
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < this.defaultInitialRowCount; i++) {
       this.deliveryLocationInputs.appendChild(this.renderDestinationInputRow());
     }
   }
