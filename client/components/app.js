@@ -25,7 +25,7 @@ class App {
     this.notificationService.open(
       'Reset Form',
       [
-        'Are you sure you want to reset the form?',
+        'Are you sure you want to clear the form?',
         'This action cannot be undone.'
       ],
       [

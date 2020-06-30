@@ -67,7 +67,8 @@ class RoutingForm {
     this.calculateRoute(directionsRequest);
   }
 
-  handleCancel = () => {
+  handleCancel = event => {
+    event.preventDefault();
     this.openResetPrompt();
   }
 
