@@ -6,6 +6,7 @@ class RoutingForm {
     this.formElement.querySelector('#add-location-button').addEventListener('click', this.addDestinationInputRow);
     this.formElement.addEventListener('submit', this.handleSubmit);
     this.formElement.addEventListener('reset', this.handleCancel);
+    this.startingPointInput = routingFormElement.querySelector('#startingPointInput');
     this.deliveryLocationInputs = routingFormElement.querySelector('#delivery-location-inputs');
     this.addInitialDeliveryRows();
   }
@@ -74,7 +75,7 @@ class RoutingForm {
   }
 
   reset = () => {
-    this.deliveryLocationInputs.innerHTML = '';
+    this.startingPointInput.value = this.startingPointInput.defaultValue;
     this.addInitialDeliveryRows();
   }
 
