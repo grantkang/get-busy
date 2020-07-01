@@ -8,6 +8,7 @@ class App {
   }
 
   calculateRoute = (directionsRequest, submitButton) => {
+    window.location.href = '#map';
     this.mapController.directionsService.route(directionsRequest, (result, status) => {
       submitButton.removeAttribute('disabled');
       if (status === 'OK') {
@@ -37,6 +38,7 @@ class App {
   }
 
   searchForPotentialCustomers = yelpBusinessSearchRequest => {
+    window.location.href = '#routing-form';
     var endpointUrl = '/api/yelp/customers';
     $.ajax({
       method: 'POST',
