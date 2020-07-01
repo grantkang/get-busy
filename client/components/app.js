@@ -7,8 +7,9 @@ class App {
     this.notificationService = notificationService;
   }
 
-  calculateRoute = directionsRequest => {
+  calculateRoute = (directionsRequest, submitButton) => {
     this.mapController.directionsService.route(directionsRequest, (result, status) => {
+      submitButton.removeAttribute('disabled');
       if (status === 'OK') {
         this.mapController.directionsRenderer.setDirections(result);
       } else if (status === 'NOT_FOUND') {
