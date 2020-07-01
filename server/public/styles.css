@@ -14,7 +14,6 @@ h1 {
 
 #routing-form {
   max-height: 94vh;
-  overflow: auto;
 }
 
 #modal-overlay {
@@ -30,4 +29,14 @@ h1 {
 
 #modal-container {
   z-index: 2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media only screen and (min-width: 768px) {
+  #routing-form {
+    overflow: auto;
+  }
 }
