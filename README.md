@@ -1,5 +1,5 @@
-# Get Busy
-`Get Busy` is a web application for people who want to plan out the optimal round trip route with multiple stops.
+# Git Busy
+`Git Busy` is a web application for people who want to plan out the optimal round trip route with multiple stops.
 
 ### Live Demo
 Link: https://maps.grantkang.com
