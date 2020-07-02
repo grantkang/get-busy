@@ -46,19 +46,21 @@
       <div id="map" class="col-lg-8">
       </div>
       <form id="routing-form" class="col-lg-4">
+        <div class="form-group my-2">
+          <input class="btn btn-primary routing-form-submit-button" type="submit" value="Get Route">
+          <input class="btn btn-outline-secondary routing-form-clear-button" type="reset" value="Clear">
+        </div>
         <div class="form-group">
           <label for="startingPointInput">Starting/Ending Point</label>
           <input required type="text" class="form-control" id="startingPointInput" name="startingPointInput" placeholder="Starting/Ending Pt. Address">
         </div>
         <label>Stops <i id="add-location-button" class="btn btn-outline-secondary fa fa-plus"></i></label>
         <div id="delivery-location-inputs">
-
         </div>
         <div class="form-group mb-3">
-          <input id="submit-button" class="btn btn-primary" type="submit" value="Get Route">
-          <input id="clear-button" class="btn btn-outline-secondary" type="reset" value="Clear">
+          <input class="btn btn-primary routing-form-submit-button" type="submit" value="Get Route">
+          <input class="btn btn-outline-secondary routing-form-clear-button" type="reset" value="Clear">
         </div>
-
       </form>
 
     </div>

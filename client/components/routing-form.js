@@ -55,8 +55,8 @@ class RoutingForm {
 
   handleSubmit = event => {
     event.preventDefault();
-    var submitButton = document.getElementById('submit-button');
-    submitButton.setAttribute('disabled', true);
+    var submitButtons = document.querySelectorAll('.routing-form-submit-button');
+    submitButtons.forEach(button => button.setAttribute('disabled', true));
     var formData = new FormData(event.target);
     var directionsRequest = {
       origin: formData.get('startingPointInput'),
@@ -66,7 +66,7 @@ class RoutingForm {
       optimizeWaypoints: true,
       avoidTolls: true
     };
-    this.calculateRoute(directionsRequest, submitButton);
+    this.calculateRoute(directionsRequest, submitButtons);
   }
 
   handleCancel = event => {

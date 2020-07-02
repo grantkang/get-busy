@@ -7,10 +7,10 @@ class App {
     this.notificationService = notificationService;
   }
 
-  calculateRoute = (directionsRequest, submitButton) => {
+  calculateRoute = (directionsRequest, submitButtons) => {
     window.location.href = '#map';
     this.mapController.directionsService.route(directionsRequest, (result, status) => {
-      submitButton.removeAttribute('disabled');
+      submitButtons.forEach(button => button.removeAttribute('disabled'));
       if (status === 'OK') {
         this.mapController.directionsRenderer.setDirections(result);
       } else if (status === 'NOT_FOUND') {
