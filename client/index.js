@@ -21,4 +21,21 @@ function init() {
   app.start();
 }
 
+/* eslint-disable no-undef */
+$(document).ready(function () {
+  checkSize();
+});
+
+$(window).resize(function () {
+  checkSize();
+});
+
+function checkSize() {
+  if ($(window).width() < 768) {
+    $('#navbarToggleExternalContent').addClass('collapse');
+  } else {
+    $('#navbarToggleExternalContent').removeClass('collapse');
+  }
+}
+
 module.exports = { init: init };

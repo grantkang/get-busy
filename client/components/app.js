@@ -60,7 +60,7 @@ class App {
     this.notificationService.open(
       'Welcome',
       [
-        'Get Busy is an app that helps you find the shortest route to make a roundtrip while visiting all the places you need to go!',
+        'GitBusy is an app that helps you find the shortest route to make a roundtrip while visiting all the places you need to go!',
         'If this is your first time here. Here\'s what you need to know to get started:',
         '1.) All that the app needs is your starting/ending point & some stops.',
         '2.) For either input, you can either put the name of the place or the address.',
