@@ -37,7 +37,7 @@ class App {
     );
   }
 
-  searchForPotentialCustomers = yelpBusinessSearchRequest => {
+  searchForPotentialCustomers = (yelpBusinessSearchRequest, submitButton) => {
     window.location.href = '#routing-form';
     var endpointUrl = '/api/yelp/customers';
     $.ajax({
@@ -48,7 +48,10 @@ class App {
       },
       data: JSON.stringify(yelpBusinessSearchRequest),
       success: this.handlePotentialCustomerSearchSuccess,
-      error: this.handlePotentialCustomerSearchError
+      error: this.handlePotentialCustomerSearchError,
+      complete: () => {
+        submitButton.removeAttribute('disabled');
+      }
     });
   }
 

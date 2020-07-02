@@ -11,6 +11,8 @@ class YelpSearch {
 
   handleSubmit = event => {
     event.preventDefault();
+    var submitButton = document.getElementById('yelp-search-button');
+    submitButton.setAttribute('disabled', true);
     var formData = new FormData(event.target);
     var yelpBusinessSearchRequest = {
       location: formData.get('location'),
@@ -19,7 +21,7 @@ class YelpSearch {
         categories: formData.get('search-query')
       }
     };
-    this.searchForPotentialCustomers(yelpBusinessSearchRequest);
+    this.searchForPotentialCustomers(yelpBusinessSearchRequest, submitButton);
   }
 }
 module.exports = YelpSearch;
